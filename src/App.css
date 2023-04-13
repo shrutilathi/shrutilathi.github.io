@@ -78,3 +78,7 @@ input, select{
 label {
   padding: 12px 12px 12px 0;
 }
+h1{
+  text-align: center;
+  color: #11281f;
+}

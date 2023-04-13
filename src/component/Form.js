@@ -1,11 +1,14 @@
 import React, { useState } from "react";
+import { useDispatch } from 'react-redux';
 import "../App.css";
+import {addUser} from "../actions/index"
 const Form = ({ onSubmit }) => {
+  const dispatch=useDispatch();
   const [person, setPerson] = useState({
     id: Date.now(),
     name: "",
     email: "",
-    age: 0,
+    age: "",
   });
 
   const handleInputChange = (event) => {
@@ -20,7 +23,11 @@ const Form = ({ onSubmit }) => {
     event.preventDefault();
     onSubmit({ person });
   };
-
+  
+  const handleAddRecord=(event)=>{
+    event.preventDefault();
+    dispatch(addUser(person));
+  }
   return (
       <form className="App" onSubmit={handleSubmit}>
         <div className="Element">
@@ -54,7 +61,7 @@ const Form = ({ onSubmit }) => {
           />
         </div>
         <div>
-          <button>Submit</button>
+          <button onClick={handleAddRecord}>Submit</button>
         </div>
       </form>
   );
