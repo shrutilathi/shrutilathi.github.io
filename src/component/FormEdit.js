@@ -43,10 +43,8 @@ const FormEdit = () => {
         <label>Name : </label>
         <input
           type="text"
-          name="name"
           onChange={handleInputChange}
           placeholder="Your Name.."
-          //   defaultValue={name}
           defaultValue={person["name"]}
         />
       </div>
@@ -54,7 +52,6 @@ const FormEdit = () => {
         <label>Email : </label>
         <input
           type="email"
-          name="email"
           onChange={handleInputChange}
           placeholder="Your Email.."
           defaultValue={person.email}
@@ -64,7 +61,6 @@ const FormEdit = () => {
         <label>Age : </label>
         <input
           type="number"
-          name="age"
           onChange={handleInputChange}
           placeholder="Your Age.."
           defaultValue={person.age}
