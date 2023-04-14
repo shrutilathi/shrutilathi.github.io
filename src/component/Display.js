@@ -2,10 +2,15 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteUser } from "../actions/index";
 import "../App.css";
+import { useNavigate } from "react-router-dom";
+
 const Display = () => {
   const dispatch = useDispatch();
   const myState = useSelector((state) => state.reducer);
-  const editRecord = () => {};
+  const navigate = useNavigate();
+  const editRecord = (id) => {
+    navigate(`/Edit?id=${id}`, { state: { data: myState, id: id } });
+  };
   return (
     <>
       <h1>User Details</h1>
