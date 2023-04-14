@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "../App.css";
 import { addUser } from "../actions/index";
-const Form = ({ onSubmit }) => {
-  const dispatch = useDispatch();
-  const user = {
-    id: Date.now(),
-    name: "",
-    email: "",
-    age: "",
-  };
-  const [person, setPerson] = useState(user);
+const user = {
+  name: "",
+  email: "",
+  age: "",
+};
 
+const Form = () => {
+  const [person, setPerson] = useState(user);
+  const dispatch = useDispatch();
+  const mystate = useSelector((state) => state);
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setPerson((prevPerson) => ({
@@ -22,14 +22,8 @@ const Form = ({ onSubmit }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(addUser(person));
-    var getName = document.getElementById("name");
-    var getEmail = document.getElementById("email");
-    var getAge = document.getElementById("age");
-    getName.value = "";
-    getEmail.value = "";
-    getAge.value = "";
-    console.log(person);
+    dispatch(addUser({ ...person, id: Date.now() }));
+    setPerson(user);
   };
 
   return (
