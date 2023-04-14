@@ -35,7 +35,6 @@ const Form = () => {
           name="name"
           onChange={handleInputChange}
           placeholder="Your Name.."
-          id="name"
           value={person.name}
         />
       </div>
@@ -46,7 +45,6 @@ const Form = () => {
           name="email"
           onChange={handleInputChange}
           placeholder="Your Email.."
-          id="email"
           value={person.email}
         />
       </div>
@@ -57,7 +55,6 @@ const Form = () => {
           name="age"
           onChange={handleInputChange}
           placeholder="Your Age.."
-          id="age"
           value={person.age}
         />
       </div>
