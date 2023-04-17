@@ -31,6 +31,7 @@ const Form = () => {
       <div className="Element">
         <label>Name : </label>
         <input
+          name="name"
           type="text"
           onChange={handleInputChange}
           placeholder="Your Name.."
@@ -49,6 +50,7 @@ const Form = () => {
       <div className="Element">
         <label>Age : </label>
         <input
+          name="age"
           type="number"
           onChange={handleInputChange}
           placeholder="Your Age.."
