@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import "../App.css";
 import { addUser } from "../actions/index";
 const user = {
@@ -11,7 +11,6 @@ const user = {
 const Form = () => {
   const [person, setPerson] = useState(user);
   const dispatch = useDispatch();
-  const mystate = useSelector((state) => state);
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setPerson((prevPerson) => ({

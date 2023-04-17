@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { editUser } from "../actions/index";
+
 const updateUser = {
   name: "",
   email: "",
@@ -10,59 +11,57 @@ const updateUser = {
 const FormEdit = () => {
   const [person, setPerson] = useState(updateUser);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const myState = useSelector((state) => state.reducer);
   const location = useLocation();
   const { id } = location.state;
 
   useEffect(() => {
-    console.log(myState);
-    const tempList = [...myState];
-    const temp = tempList.filter((item) => item.id === id);
-    updateUser.name = temp[0].name;
-    updateUser.email = temp[0].email;
-    updateUser.age = temp[0].age;
-    //   console.log("I AM UPDATE");
-    //   console.log(updateUser);
-  }, []);
+    const [temp] = [...myState].filter((item) => item.id === id);
+    setPerson(temp);
+  }, [id, myState]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setPerson((prevPerson) => ({
-      ...prevPerson,
+    setPerson((prev) => ({
+      ...prev,
       [name]: value,
     }));
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(editUser(...person, id));
-    setPerson(updateUser);
+    dispatch(editUser(person, id));
+    navigate("/");
   };
   return (
     <form className="App" onSubmit={handleSubmit}>
       <div className="Element">
         <label>Name : </label>
         <input
+          name="name"
           type="text"
           onChange={handleInputChange}
-          placeholder="Your Name.."
-          defaultValue={person["name"]}
+          placeholder="Enter Updated Name.."
+          defaultValue={person.name}
         />
       </div>
       <div className="Element">
         <label>Email : </label>
         <input
+          name="email"
           type="email"
           onChange={handleInputChange}
-          placeholder="Your Email.."
+          placeholder="Enter Updated Email.."
           defaultValue={person.email}
         />
       </div>
       <div className="Element">
         <label>Age : </label>
         <input
+          name="age"
           type="number"
           onChange={handleInputChange}
-          placeholder="Your Age.."
+          placeholder="Enter Updated Age.."
           defaultValue={person.age}
         />
       </div>
