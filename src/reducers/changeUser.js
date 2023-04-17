@@ -11,7 +11,9 @@ const reducer = (state =initialData, action) => {
           const tempList=state.map((item)=>{
               if(item.id===action.payload.id)
               {
-                return Object.assign(item,action.payload);
+                item.name=action.payload.name;
+                item.email=action.payload.email;
+                item.age=action.payload.age;
               }
               return item;
             });

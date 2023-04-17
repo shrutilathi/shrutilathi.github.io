@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { editUser } from "../actions/index";
 
 const updateUser = {
@@ -13,11 +13,13 @@ const FormEdit = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const myState = useSelector((state) => state.reducer);
-  const location = useLocation();
-  const { id } = location.state;
+  
+  const [searchParams] = useSearchParams();
+  const id = searchParams.get("id");
 
   useEffect(() => {
-    const [temp] = [...myState].filter((item) => item.id === id);
+    console.log(myState);
+    const [temp] = [...myState].filter((item) => item.id == id);
     setPerson(temp);
   }, [id, myState]);
 

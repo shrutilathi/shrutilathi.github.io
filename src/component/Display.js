@@ -9,7 +9,7 @@ const Display = () => {
   const myState = useSelector((state) => state.reducer);
   const navigate = useNavigate();
   const editRecord = (id) => {
-    navigate(`/FormEdit?id=${id}`, { state: { data: myState, id: id } });
+    navigate(`/FormEdit?id=${id}`);
   };
   return (
     <>
