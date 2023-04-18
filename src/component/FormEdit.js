@@ -12,16 +12,16 @@ const FormEdit = () => {
   const [person, setPerson] = useState(updateUser);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const myState = useSelector((state) => state.reducer);
-  
+  const userRecords = useSelector((state) => state.reducer);
   const [searchParams] = useSearchParams();
   const id = searchParams.get("id");
 
   useEffect(() => {
-    console.log(myState);
-    const [temp] = [...myState].filter((item) => item.id == id);
-    setPerson(temp);
-  }, [id, myState]);
+    const [editPerson] = [...userRecords].filter(
+      (item) => item.id.toString() === id
+    );
+    setPerson(editPerson);
+  }, [id, userRecords]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -36,8 +36,8 @@ const FormEdit = () => {
     navigate("/");
   };
   return (
-    <form className="App" onSubmit={handleSubmit}>
-      <div className="Element">
+    <form className="app" onSubmit={handleSubmit}>
+      <div className="element">
         <label>Name : </label>
         <input
           name="name"
@@ -47,7 +47,7 @@ const FormEdit = () => {
           defaultValue={person.name}
         />
       </div>
-      <div className="Element">
+      <div className="element">
         <label>Email : </label>
         <input
           name="email"
@@ -57,7 +57,7 @@ const FormEdit = () => {
           defaultValue={person.email}
         />
       </div>
-      <div className="Element">
+      <div className="element">
         <label>Age : </label>
         <input
           name="age"

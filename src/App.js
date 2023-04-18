@@ -5,10 +5,10 @@ import Display from "./component/Display";
 
 const App = () => {
   return (
-    <div>
+    <>
       <Form />
       <Display />
-    </div>
+    </>
   );
 };
 

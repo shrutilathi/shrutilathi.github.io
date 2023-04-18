@@ -1,75 +1,77 @@
-.App {
+.app {
   padding: 20px;
   display: flex;
   flex-direction: column;
   margin: auto;
   margin-top: 25px;
   text-align: center;
-  background-color: #f2f2f2;;
+  background-color: #f2f2f2;
   border-radius: 5px;
   width: 500px;
-  gap:20px;
+  gap: 20px;
 }
-body{
+body {
   background-color: #95b499;
 }
-.Element {
+.element {
   display: flex;
   justify-content: center;
-  gap:20px;
+  gap: 20px;
 }
-.Display{
-  color:white;
+.display {
+  color: #ffffff;
 }
-table{
-  width:100%;
+table {
+  width: 100%;
   padding: 10px;
-  border:1px solid rgb(183, 179, 179);
+  border: 1px solid #7d7672;
   border-collapse: collapse;
 }
-th,td{
+th,
+td {
   text-align: center;
-  padding:10px;
-  border:1px solid rgb(170, 147, 147);
+  padding: 10px;
+  border: 1px solid #7d7672;
 }
-tr{
-  background-color: black;
+tr {
+  background-color: #000000;
 }
-.btn-edit{
+.edit-button {
   background-color: #85ef85;
-  color:black;
-padding:10px;
-border-radius: 5px;
-width:70px;
-}
-.btn-delete{
-  margin-left:25px;
-  background-color: red;
-  color:black;
-  padding:10px;
+  color: #000000;
+  padding: 10px;
   border-radius: 5px;
-  width:70px;
+  width: 70px;
 }
-.btn-edit:hover{
-  background-color: gray;
-  color: white;
+.delete-button {
+  margin-left: 25px;
+  background-color: #f40707;
+  color: #000000;
+  padding: 10px;
+  border-radius: 5px;
+  width: 70px;
 }
-.btn-delete:hover{
-  background-color: gray;
-  color:white;
+.edit-button:hover {
+  background-color: #786c66;
+  color: #ffffff;
 }
-button{
-  width:100px;
+.delete-button:hover {
+  background-color: #786c66;
+  color: #ffffff;
+}
+button {
+  width: 100px;
   padding: 10px;
   border-radius: 5px;
   border: none;
-  background-color: #04AA6D;
-  color: white;
+  background-color: #04aa6d;
+  color: #ffffff;
 }
-button:hover{
+button:hover {
   background-color: #45a049;
 }
-input, select{
+input,
+select {
   width: 50%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -78,7 +80,7 @@ input, select{
 label {
   padding: 12px 12px 12px 0;
 }
-h1{
+h1 {
   text-align: center;
   color: #11281f;
 }

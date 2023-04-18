@@ -26,8 +26,8 @@ const Form = () => {
   };
 
   return (
-    <form className="App" onSubmit={handleSubmit}>
-      <div className="Element">
+    <form className="app" onSubmit={handleSubmit}>
+      <div className="element">
         <label>Name : </label>
         <input
           name="name"
@@ -37,7 +37,7 @@ const Form = () => {
           value={person.name}
         />
       </div>
-      <div className="Element">
+      <div className="element">
         <label>Email : </label>
         <input
           name="email"
@@ -46,7 +46,7 @@ const Form = () => {
           value={person.email}
         />
       </div>
-      <div className="Element">
+      <div className="element">
         <label>Age : </label>
         <input
           name="age"

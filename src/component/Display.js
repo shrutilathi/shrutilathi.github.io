@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 const Display = () => {
   const dispatch = useDispatch();
-  const myState = useSelector((state) => state.reducer);
+  const userRecords = useSelector((state) => state.reducer);
   const navigate = useNavigate();
   const editRecord = (id) => {
     navigate(`/FormEdit?id=${id}`);
@@ -15,7 +15,7 @@ const Display = () => {
     <>
       <h1>User Details</h1>
       <div>
-        <table className="Display">
+        <table className="display">
           <thead>
             <tr>
               <th>Name</th>
@@ -25,7 +25,7 @@ const Display = () => {
             </tr>
           </thead>
           <tbody>
-            {myState.map((item) => {
+            {userRecords.map((item) => {
               return (
                 <tr key={item.id}>
                   <td>{item.name}</td>
@@ -36,13 +36,13 @@ const Display = () => {
                       onClick={() => {
                         editRecord(item.id);
                       }}
-                      className="btn-edit"
+                      className="edit-button"
                     >
                       Edit
                     </button>
                     <button
                       onClick={() => dispatch(deleteUser(item.id))}
-                      className="btn-delete"
+                      className="delete-button"
                     >
                       Delete
                     </button>
