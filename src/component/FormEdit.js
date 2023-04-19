@@ -20,6 +20,7 @@ const FormEdit = () => {
     const [editPerson] = [...userRecords].filter(
       (item) => item.id.toString() === id
     );
+
     setPerson(editPerson);
   }, [id, userRecords]);
 
